@@ -16,15 +16,16 @@ function App() {
     <MainBanner />
     {/* <div style={{display: 'flex', width: '100b'}}> */}
 
-      <CategoryListing />
-      <TopRated />
+      <CategoryListing categoryTitle={'Top Rated Novels'} />
+      <CategoryListing categoryTitle={'Fantasy'} />
+      <CategoryListing categoryTitle={'Romance'} />
+      <CategoryListing categoryTitle={'Comedy'} />
+      <CategoryListing categoryTitle={'Historical'} />
+      {/* <TopRated /> */}
     {/* </div> */}
 
     {/* <NovelPage /> */}
-      {/* <div className="duck">
-        <h1>${count}</h1>
-        <img src="duck.png" width="50%" onClick={incrementMoney}/>
-      </div> */}
+
     </>
   )
 }

@@ -1,8 +1,35 @@
+import { useParams } from "react-router-dom";
 import ReviewEntry from "./ReviewEntry";
+import { useState } from "react";
+
+interface NovelInterface {
+  title: string,
+  author: string,
+  paragraphs: number,
+  publicationStatus: number, //may switch to boolean if decide to ignore hiatus status, otherwise 1 = ongoing,
+  //2 = hiatus and 3 = completed
+  readAt: string, //link where user can read it at
+  rating: number,
+  summary: string
+}
 
 //will pass in the id of the novel?
 export default function NovelPage() {
-  console.log("page");
+  //grab id path variable to request data from server
+  const { id } = useParams();
+  const [novelInfo, setNovelInfo] = useState<NovelInterface>({
+    title: '',
+    author: '',
+    paragraphs: 0,
+    publicationStatus: 1,
+    readAt: '',
+    rating: 1,
+    summary: ''
+  });
+  const fetchNovelInfo = async() => {
+    const response = await fetch(`novel/${id}`);
+    const result = await response.json();
+  }
   return (
     <div style={{maxWidth: '80vw', width: '80vw', backgroundColor: 'red', margin: 'auto'}}>
       <div className="novel info" style={{display: 'flex'}}>
